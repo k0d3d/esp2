@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
@@ -13,6 +14,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar.directive';
 import { AsideToggleDirective } from './shared/aside.directive';
 import { BreadcrumbsComponent } from './shared/breadcrumb.component';
+import { AuthStatusDialog } from './shared/dialog'
 
 // Routing Module
 import { AppRoutingModule } from './app.routing';
@@ -42,6 +44,7 @@ const firebaseConfig = {
     TabsModule.forRoot(),
     ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    MaterialModule
     // FormsModule
   ],
   declarations: [
@@ -52,7 +55,9 @@ const firebaseConfig = {
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
+    AuthStatusDialog
   ],
+  entryComponents: [AuthStatusDialog],
   providers: [
     AuthService,
     EmitterService,
