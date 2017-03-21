@@ -37,6 +37,10 @@ export const routes: Routes = [
       {
         path: 'charts',
         loadChildren: './chartjs/chartjs.module#ChartJSModule'
+      },
+      {
+        path: 'activity',
+        loadChildren: './activity/activity.module#ActivityModule'
       }
     ]
   },

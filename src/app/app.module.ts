@@ -26,7 +26,8 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 import { AngularFireModule } from 'angularfire2';
 
 import { AuthService } from './auth/auth.service'
-import { EmitterService } from './provider/services/emitter.service'
+import { EmitterService } from './provider/services/emitter.service';
+import { ActivityModule } from './activity/activity.module'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBw2QzOUPIlWY82y3sS83LyMI1tocAVejo",
@@ -44,7 +45,8 @@ const firebaseConfig = {
     TabsModule.forRoot(),
     ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    MaterialModule
+    MaterialModule,
+    ActivityModule
     // FormsModule
   ],
   declarations: [
@@ -55,7 +57,8 @@ const firebaseConfig = {
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
-    AuthStatusDialog
+    AuthStatusDialog,
+    // ActivityComponent
   ],
   entryComponents: [AuthStatusDialog],
   providers: [
