@@ -27,7 +27,8 @@ import { AngularFireModule } from 'angularfire2';
 
 import { AuthService } from './auth/auth.service'
 import { EmitterService } from './provider/services/emitter.service';
-import { ActivityModule } from './activity/activity.module'
+import { ActivityModule } from './activity/activity.module';
+import { ShortIdPipe } from './short-id.pipe'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBw2QzOUPIlWY82y3sS83LyMI1tocAVejo",
@@ -58,6 +59,7 @@ const firebaseConfig = {
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
     AuthStatusDialog,
+    ShortIdPipe,
     // ActivityComponent
   ],
   entryComponents: [AuthStatusDialog],
