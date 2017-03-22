@@ -35,39 +35,40 @@
             </tr>
           </thead>
           <tbody>
-            <!--<tr ng-repeat="fd in all_feedback | orderBy: '-dateTriggered' | filter: search | offset: pagination_config.currentPage:pagination_config.itemsPerPage | limitTo: pagination_config.itemsPerPage">-->
-            <!--  <td>-->
-            <!--    <p style="margin-bottom: 0;"><strong>{{fd.questions}}</strong></p><span>Feedback - {{fd.checkInId._id | shortenId}} at {{fd.locationId.name}}, <span>{{fd.locationId.address}}</span> <span style="color:#1bbae1">{{fd.checkInId.checkInTime | moment}}</span></span>-->
-            <!--  </td>-->
-            <!--  <td>Active</td>-->
-            <!--  <td><a class="btn btn-alt btn-link"><i ng-show="fd.decision == 'Yes'" style="color: green" class="fa fa-thumbs-up">Yes</i><i ng-show="fd.decision == 'No'" style="color: red" class="fa fa-thumbs-down">No</i></a></td>-->
-            <!--  <td>-->
-            <!--    <div class="btn-toolbar">-->
-            <!--      <div class="btn-group">-->
-            <!--        <div class="dropdown"><a data-toggle="dropdown" class="btn btn-alt btn-link dropdown-toggle"><i class="fa fa-comment"></i></a>-->
-            <!--          <ul class="dropdown-menu dropdown-custom">-->
-            <!--            <li>-->
-            <!--              <p class="well">{{fd.hasComment}}</p>-->
-            <!--            </li>-->
-            <!--          </ul>-->
-            <!--        </div>-->
-            <!--      </div>-->
-            <!--      <div class="btn-group">-->
-            <!--        <div class="dropdown"><a data-toggle="dropdown" ng-click="imageSrc= CDN_URL + '/' +fd.hasImage" class="btn btn-alt btn-link dropdown-toggle"><i class="fa fa-picture-o"></i></a>-->
-            <!--          <ul class="dropdown-menu dropdown-custom">-->
-            <!--            <li>-->
-            <!--              <p><a ng-href="{{CDN_URL}}/{{fd.hasImage}}" target="_blank" class="btn btn-alt btn-link"><img ng-src="{{imageSrc}}" style="width: 300px" class="img-thumbnail"></a></p>-->
-            <!--            </li>-->
-            <!--          </ul>-->
-            <!--        </div>-->
-            <!--      </div>-->
-            <!--      <div class="btn-group">-->
-            <!--        <div class="dropdown"><a class="btn btn-alt btn-link"><i class="fa fa-video-camera"></i></a></div>-->
-            <!--      </div>-->
-            <!--    </div>-->
-            <!--  </td>-->
-            <!--  <td><span response-time="fd">{{fd.timeUpdated | moment}}</span></td>-->
-            <!--</tr>-->
+            <tr *ngFor="let fd of dataAct">
+              <td>
+                <!--<p style="margin-bottom: 0;"><strong>{{fd.questionPrompt}}</strong></p><span>Feedback - {{fd.checkInId._id | shortenId}} at {{fd.locationId.name}}, <span>{{fd.locationId.address}}</span> <span style="color:#1bbae1">{{fd.checkInId.checkInTime | moment}}</span></span>-->
+                <p style="margin-bottom: 0;"><strong>{{fd.questionPrompt}}</strong></p><span>Feedback - {{fd.checkInId | shortId}} at {{fd.locationId?.name}}, <span>{{fd.locationId?.address}}</span> <span style="color:#1bbae1">{{fd.checkInTime | amCalendar}}</span></span>
+              </td>
+              <td>Active</td>
+              <td><a class="btn btn-alt btn-link"><i *ngIf="fd.decision == 'Yes'" style="color: green" class="fa fa-thumbs-up">Yes</i><i *ngIf="fd.decision == 'No'" style="color: red" class="fa fa-thumbs-down">No</i></a></td>
+              <td>
+                <div class="btn-toolbar">
+                  <div class="btn-group">
+                    <div class="dropdown"><a data-toggle="dropdown" class="btn btn-alt btn-link dropdown-toggle"><i class="fa fa-comment"></i></a>
+                      <ul class="dropdown-menu dropdown-custom">
+                        <li>
+                          <p class="well">{{fd.hasComment}}</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="btn-group">
+                    <div class="dropdown"><a data-toggle="dropdown" (click)="imageSrc= CDN_URL + '/' +fd.hasImage" class="btn btn-alt btn-link dropdown-toggle"><i class="fa fa-picture-o"></i></a>
+                      <ul class="dropdown-menu dropdown-custom">
+                        <li>
+                          <!--<p><a ng-href="{{CDN_URL}}/{{fd.hasImage}}" target="_blank" class="btn btn-alt btn-link"><img ng-src="{{imageSrc}}" style="width: 300px" class="img-thumbnail"></a></p>-->
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="btn-group">
+                    <div class="dropdown"><a class="btn btn-alt btn-link"><i class="fa fa-video-camera"></i></a></div>
+                  </div>
+                </div>
+              </td>
+              <td><span response-time="fd">{{fd.timeUpdated | amTimeAgo}}</span></td>
+            </tr>
           </tbody>
         </table>
       </div>

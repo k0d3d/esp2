@@ -14,6 +14,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar.directive';
 import { AsideToggleDirective } from './shared/aside.directive';
 import { BreadcrumbsComponent } from './shared/breadcrumb.component';
+
 import { AuthStatusDialog } from './shared/dialog'
 
 // Routing Module
@@ -28,7 +29,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AuthService } from './auth/auth.service'
 import { EmitterService } from './provider/services/emitter.service';
 import { ActivityModule } from './activity/activity.module';
-import { ShortIdPipe } from './short-id.pipe'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBw2QzOUPIlWY82y3sS83LyMI1tocAVejo",
@@ -47,8 +47,8 @@ const firebaseConfig = {
     ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule,
-    ActivityModule
-    // FormsModule
+    ActivityModule,
+    
   ],
   declarations: [
     AppComponent,
@@ -59,8 +59,6 @@ const firebaseConfig = {
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
     AuthStatusDialog,
-    ShortIdPipe,
-    // ActivityComponent
   ],
   entryComponents: [AuthStatusDialog],
   providers: [

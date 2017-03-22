@@ -27,37 +27,49 @@ export class ActivityService {
 
   }
 
-  makeRequest (uri: string, method: string = 'GET', extraHeaders: any = {}, body?: Object): Observable<any> {
-    // authService.auth$.subscribe((state: FirebaseAuthState) => {
-    //   authService.authState = state;
-    // });
-    const ret = this
-    const m = Observable.fromPromise(this.authService.getAuthToken())
-    
-    m.subscribe(token => {
-      console.log(token)
-      extraHeaders.Authorization = 'Bearer ' + token
-      
-      ret.http.request(`${ret.resourceUrl}${uri}`, {
-          url: `${ret.resourceUrl}${uri}`,
+  makeRequest (uri: string, method: string = 'GET', extraHeaders: any = {}, body?: Object): Promise<any> {
+    const self = this
+    return this.authService.getAuthToken()
+    .then(token => {
+      extraHeaders.Authorization = '' + token
+      return self.http.request(`${self.resourceUrl}${uri}`, {
+          url: `${self.resourceUrl}${uri}`,
           method: method,
           headers: new Headers(extraHeaders),
           body: body
-      }) 
+      })  
+      .toPromise()
     })
+    // authService.auth$.subscribe((state: FirebaseAuthState) => {
+    //   authService.authState = state;
+    // });
+    // const ret = this
+    // const m = Observable.fromPromise(this.authService.getAuthToken())
     
-    return m
+    // m.subscribe(token => {
+    //   console.log(token)
+    //   extraHeaders.Authorization = 'Bearer ' + token
+      
+    //   ret.http.request(`${ret.resourceUrl}${uri}`, {
+    //       url: `${ret.resourceUrl}${uri}`,
+    //       method: method,
+    //       headers: new Headers(extraHeaders),
+    //       body: body
+    //   }) 
+    // })
+    
+    // return m
   }
 
   /**
    * fetches all tasks / issues from github
    */
-  getUserActivities (): Observable<Activity[]> {
-    return this.makeRequest('/api/v2/locations')
+  getUserActivities (): Promise<any> {
+    return this.makeRequest('/api/v2/feedback')
       // ...and calling .json() on the response to return data
-      .map((res:Response) => res.json())
+      // .map((res:Response) => res.json())
       //...errors if any
-      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+      // .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }  
 
 }

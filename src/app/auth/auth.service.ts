@@ -34,14 +34,15 @@ export class AuthService {
   getAuthToken(): Promise<any> {
     const self = this
     return new Promise ((resolve, reject) => {
-      
-      if (!self.authState) return reject()
-      self.authState.auth.getToken()
-      .then(res => {
-        resolve(res)
-      }, err => reject(err))
-      .catch(r => {
-        console.log(r)
+      self.auth$.subscribe((state: FirebaseAuthState) => {
+        if (!state) return reject()
+        state.auth.getToken()
+        .then(res => {
+          resolve(res)
+        }, err => reject(err))
+        .catch(r => {
+          console.log(r)
+        })
       })
     })
   }
