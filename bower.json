@@ -1,0 +1,22 @@
+{
+  "name": "esp",
+  "description": "Enterprise Solution Program",
+  "main": "index.html",
+  "authors": [
+    "g0f0rky0s3lf <michael@i-x.it>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/k0d3d/esp2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularfire": "^2.3.0"
+  }
+}
