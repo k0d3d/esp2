@@ -25,6 +25,7 @@ import { AppRoutingModule } from './app.routing';
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 
+// 
 import { AngularFireModule } from 'angularfire2';
 
 import { AuthService } from './auth/auth.service'
@@ -61,6 +62,7 @@ const firebaseConfig = {
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
     AuthStatusDialog
+    
   ],
   entryComponents: [AuthStatusDialog],
   providers: [
