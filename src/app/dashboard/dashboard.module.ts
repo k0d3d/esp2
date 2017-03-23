@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { DropdownModule } from 'ng2-bootstrap/dropdown';
+
 
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
+import { SharedModule } from '../shared/shared.module'
+
+import { ActivityComponent } from '../activity/activity.component';
+import { ActivityService } from '../activity/activity.service'
+
 @NgModule({
   imports: [
     DashboardRoutingModule,
-    ChartsModule,
-    DropdownModule
+    SharedModule
   ],
-  declarations: [ DashboardComponent ]
+  declarations: [ 
+    DashboardComponent,
+    ActivityComponent
+  ],
+  providers: [ ActivityService ]
 })
 export class DashboardModule { }

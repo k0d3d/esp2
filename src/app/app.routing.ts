@@ -37,13 +37,22 @@ export const routes: Routes = [
       {
         path: 'charts',
         loadChildren: './chartjs/chartjs.module#ChartJSModule'
-      },
-      {
-        path: 'activity',
-        loadChildren: './activity/activity.module#ActivityModule'
       }
     ]
   },
+  {
+    path: 'apps',
+    component: FullLayoutComponent,
+    data: {
+      title: 'Platform apps'
+    },
+    children: [
+      {
+        path: '',
+        loadChildren: './core/core.module#CoreModule',
+      }
+    ]
+  },  
   {
     path: 'pages',
     component: SimpleLayoutComponent,

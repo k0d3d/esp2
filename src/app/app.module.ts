@@ -16,6 +16,7 @@ import { AsideToggleDirective } from './shared/aside.directive';
 import { BreadcrumbsComponent } from './shared/breadcrumb.component';
 
 import { AuthStatusDialog } from './shared/dialog'
+import { SharedModule } from './shared/shared.module'
 
 // Routing Module
 import { AppRoutingModule } from './app.routing';
@@ -28,7 +29,8 @@ import { AngularFireModule } from 'angularfire2';
 
 import { AuthService } from './auth/auth.service'
 import { EmitterService } from './provider/services/emitter.service';
-import { ActivityModule } from './activity/activity.module';
+import { CoreModule } from './core/core.module';
+// import { LocationsModule } from './locations/locations.module';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBw2QzOUPIlWY82y3sS83LyMI1tocAVejo",
@@ -47,8 +49,8 @@ const firebaseConfig = {
     ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule,
-    ActivityModule,
-    
+    CoreModule,
+    SharedModule
   ],
   declarations: [
     AppComponent,
@@ -58,7 +60,7 @@ const firebaseConfig = {
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
-    AuthStatusDialog,
+    AuthStatusDialog
   ],
   entryComponents: [AuthStatusDialog],
   providers: [

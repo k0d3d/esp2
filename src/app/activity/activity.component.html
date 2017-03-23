@@ -1,15 +1,16 @@
+
 <div id="page-content" class="page-content">
   <!-- Contacts Header-->
   <div class="content-header">
     <div class="header-section">
-      <!--<h1><i class="gi gi-stats"></i>Feedback<br><small>{{one_checkin_feedback[0].checkInId.checkInTime | date:'medium'}}</small><a href="/resource/locations/activity/export" class="btn btn-alt btn-xs btn-primary">Export to Excel</a></h1>-->
+      <h1><i class="gi gi-stats"></i>Activities Overview<br><a href="/resource/locations/activity/export" class="btn btn-alt btn-xs btn-primary">Export to Excel</a></h1>
     </div>
   </div>
   <!-- END Contacts Header-->
   <!-- Main Row-->
   <div class="row">
     <div class="block">
-      <div class="table-options clearfix">
+      <div class="table-options clearfix hide">
         <div class="row">
           <div class="col-md-8">
             <form role="search" class="navbar-form-custom">
@@ -23,6 +24,69 @@
           </div>
         </div>
       </div>
+      <div class="card-group">
+        <div class="card">
+          <div class="card-block">
+            <div class="h1 text-muted text-right mb-2">
+              <i class="icon-people"></i>
+            </div>
+            <div class="h4 mb-0">87.500</div>
+            <small class="text-muted text-uppercase font-weight-bold">Check-ins</small>
+            <div class="progress progress-xs mt-1 mb-0">
+              <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-block">
+            <div class="h1 text-muted text-right mb-2">
+              <i class="icon-user-follow"></i>
+            </div>
+            <div class="h4 mb-0">385</div>
+            <small class="text-muted text-uppercase font-weight-bold">Triggered feedback</small>
+            <div class="progress progress-xs mt-1 mb-0">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-block">
+            <div class="h1 text-muted text-right mb-2">
+              <i class="icon-basket-loaded"></i>
+            </div>
+            <div class="h4 mb-0">1238</div>
+            <small class="text-muted text-uppercase font-weight-bold">Answered feedback</small>
+            <div class="progress progress-xs mt-1 mb-0">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-block">
+            <div class="h1 text-muted text-right mb-2">
+              <i class="icon-pie-chart"></i>
+            </div>
+            <div class="h4 mb-0">28%</div>
+            <small class="text-muted text-uppercase font-weight-bold">Engagements sent</small>
+            <div class="progress progress-xs mt-1 mb-0">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-block">
+            <div class="h1 text-muted text-right mb-2">
+              <i class="icon-speedometer"></i>
+            </div>
+            <div class="h4 mb-0">5:34:11</div>
+            <small class="text-muted text-uppercase font-weight-bold">Engagements clicked</small>
+            <div class="progress progress-xs mt-1 mb-0">
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <div class="table-responsive">
         <table id="general-table" class="table table-hover table-vcenter feedback-grid">
           <thead>
@@ -37,7 +101,6 @@
           <tbody>
             <tr *ngFor="let fd of dataAct">
               <td>
-                <!--<p style="margin-bottom: 0;"><strong>{{fd.questionPrompt}}</strong></p><span>Feedback - {{fd.checkInId._id | shortenId}} at {{fd.locationId.name}}, <span>{{fd.locationId.address}}</span> <span style="color:#1bbae1">{{fd.checkInId.checkInTime | moment}}</span></span>-->
                 <p style="margin-bottom: 0;"><strong>{{fd.questionPrompt}}</strong></p><span>Feedback - {{fd.checkInId | shortId}} at {{fd.locationId?.name}}, <span>{{fd.locationId?.address}}</span> <span style="color:#1bbae1">{{fd.checkInTime | amCalendar}}</span></span>
               </td>
               <td>Active</td>
@@ -57,7 +120,7 @@
                     <div class="dropdown"><a data-toggle="dropdown" (click)="imageSrc= CDN_URL + '/' +fd.hasImage" class="btn btn-alt btn-link dropdown-toggle"><i class="fa fa-picture-o"></i></a>
                       <ul class="dropdown-menu dropdown-custom">
                         <li>
-                          <!--<p><a ng-href="{{CDN_URL}}/{{fd.hasImage}}" target="_blank" class="btn btn-alt btn-link"><img ng-src="{{imageSrc}}" style="width: 300px" class="img-thumbnail"></a></p>-->
+                          <p><a href="{{CDN_URL}}/{{fd.hasImage}}" target="_blank" class="btn btn-alt btn-link"><img src="{{imageSrc}}" style="width: 300px" class="img-thumbnail"></a></p>
                         </li>
                       </ul>
                     </div>
