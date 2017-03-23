@@ -30,7 +30,9 @@ import { AngularFireModule } from 'angularfire2';
 
 import { AuthService } from './auth/auth.service'
 import { EmitterService } from './provider/services/emitter.service';
-import { CoreModule } from './core/core.module';
+
+import { QuestionsComponent } from './questions/questions.component';
+import { CoreComponent } from './core/core.component';
 // import { LocationsModule } from './locations/locations.module';
 
 const firebaseConfig = {
@@ -50,7 +52,6 @@ const firebaseConfig = {
     ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule,
-    CoreModule,
     SharedModule
   ],
   declarations: [
@@ -61,7 +62,9 @@ const firebaseConfig = {
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
-    AuthStatusDialog
+    AuthStatusDialog,
+    QuestionsComponent,
+    CoreComponent
     
   ],
   entryComponents: [AuthStatusDialog],

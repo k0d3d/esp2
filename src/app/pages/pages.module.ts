@@ -8,10 +8,6 @@ import { PagesRoutingModule } from './pages-routing.module';
 
 import { SharedModule } from '../shared/shared.module'
 
-import { ActivityComponent } from '../activity/activity.component';
-import { ActivityService } from '../activity/activity.service'
-
-
 @NgModule({
   imports: [ 
     SharedModule,
@@ -21,8 +17,7 @@ import { ActivityService } from '../activity/activity.service'
     P404Component,
     P500Component,
     LoginComponent,
-    ActivityComponent,
   ],
-  providers: [ ActivityService ]
+  providers: [ ]
 })
 export class PagesModule { }
