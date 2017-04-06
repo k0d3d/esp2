@@ -1,65 +1,37 @@
 import { Injectable } from '@angular/core';
-import { AuthProviders, AngularFireAuth, FirebaseAuthState, AuthMethods } from 'angularfire2';
+import { Auth, User } from '@ionic/cloud-angular';
+
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  private authState: FirebaseAuthState;
 
   constructor(
-    public auth$: AngularFireAuth,
+    public auth$: Auth, 
+    public user: User,
     private router: Router,
     private route: ActivatedRoute) {
 
-    auth$.subscribe((state: FirebaseAuthState) => {
-      if (!state) {
-        if (location.hash.indexOf('/pages/login') === -1) {
-          this.router.navigate(['/pages/login'])
-        }
-      } else {
-        this.authState = state;
-      }
-    });
+
   }
 
   /**
    * quick check if an authenticated session is present 
    */
   get isAuthd(): boolean {
-    return this.authState !== null;
+    return this.auth$.isAuthenticated();
   }
   /**
    * returns the authenticated user basic information
    */
-  getAuthToken(): Promise<any> {
+  getAuthToken(): String {
     const self = this
-    return new Promise ((resolve, reject) => {
-      self.auth$.subscribe((state: FirebaseAuthState) => {
-        if (!state) return reject()
-        state.auth.getToken()
-        .then(res => {
-          resolve(res)
-        }, err => reject(err))
-        .catch(r => {
-          console.log(r)
-        })
-      })
-    })
-  }
-
-  signInWithGithub(): firebase.Promise<FirebaseAuthState> {
-    return this.auth$.login({
-      provider: AuthProviders.Github,
-      method: AuthMethods.Popup     
-    })
+    return this.auth$.getToken()
   }
   
-  signInWithEmail(emailPassword): firebase.Promise<FirebaseAuthState> {
-      return this.auth$.login(emailPassword,
-        {
-          provider: AuthProviders.Password,
-          method: AuthMethods.Password,
-        });      
+  signInWithEmail(emailPassword) {
+    
+      return this.auth$.login('basic', emailPassword);      
       
   }
 

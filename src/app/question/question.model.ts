@@ -7,6 +7,4 @@ export class Question {
   public enabled?: Boolean,
   public addedOn?: string,
   ) {}
-  
-  // set 
 }

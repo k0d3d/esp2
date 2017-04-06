@@ -30,16 +30,13 @@ export class CoreService {
 
   makeRequest (uri: string, method: string = 'GET', extraHeaders: any = {}, body?: Object): Promise<any> {
     const self = this
-    return this.authService.getAuthToken()
-    .then(token => {
-      extraHeaders.Authorization = '' + token
-      return self.http.request(`${self.resourceUrl}${uri}`, {
-          url: `${self.resourceUrl}${uri}`,
-          method: method,
-          headers: new Headers(extraHeaders),
-          body: body
-      })  
-      .toPromise()
-    })
+    extraHeaders.Authorization = '' + this.authService.getAuthToken()
+    return self.http.request(`${self.resourceUrl}${uri}`, {
+        url: `${self.resourceUrl}${uri}`,
+        method: method,
+        headers: new Headers(extraHeaders),
+        body: body
+    })  
+    .toPromise()    
   }
 }

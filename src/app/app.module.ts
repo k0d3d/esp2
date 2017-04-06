@@ -27,6 +27,7 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 
 // 
 import { AngularFireModule } from 'angularfire2';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 import { AuthService } from './auth/auth.service'
 import { EmitterService } from './provider/services/emitter.service';
@@ -42,6 +43,12 @@ const firebaseConfig = {
   messagingSenderId: "384367763163"
 };
 
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': '7f3e3039'
+  }
+};
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -50,6 +57,7 @@ const firebaseConfig = {
     TabsModule.forRoot(),
     ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    CloudModule.forRoot(cloudSettings),
     MaterialModule,
     SharedModule
   ],
