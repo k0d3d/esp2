@@ -1,0 +1,9 @@
+{
+  "name": "esp",
+  "app_id": "a35bd98e",
+  "documentRoot": "app",
+  "watchPatterns": [
+    "app/**/*",
+    "!app/lib/**/*"
+  ]
+}

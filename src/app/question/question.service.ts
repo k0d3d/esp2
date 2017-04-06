@@ -6,10 +6,9 @@ import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import { Activity } from "./activity.model";
-import { AuthService } from '../auth/auth.service';
-
 import { CoreService } from '../core/core.service'
+
+import { AuthService } from '../auth/auth.service'
 
 /*
   Generated class for the Tasks provider.
@@ -18,9 +17,8 @@ import { CoreService } from '../core/core.service'
   for more info on providers and Angular 2 DI.
 */
 @Injectable()
-export class ActivityService extends CoreService {
+export class QuestionService extends CoreService{
 
-  
   constructor(
     public http: Http,
     public authService: AuthService
@@ -31,12 +29,12 @@ export class ActivityService extends CoreService {
   /**
    * fetches all tasks / issues from github
    */
-  getUserActivities (): Promise<any> {
-    return this.makeRequest('/api/v2/feedback')
-      // ...and calling .json() on the response to return data
-      // .map((res:Response) => res.json())
-      //...errors if any
-      // .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  saveUserQuestion (qData): Promise<any> {
+    return this.makeRequest('/api/v2/questions', 'POST', {}, qData)
   }  
+  
+  getPlatformQuestions (): Promise<any> {
+    return this.makeRequest('/api/v2/questions')
+  }
 
 }

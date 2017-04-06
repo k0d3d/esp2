@@ -31,9 +31,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AuthService } from './auth/auth.service'
 import { EmitterService } from './provider/services/emitter.service';
 
-import { QuestionsComponent } from './questions/questions.component';
 import { CoreComponent } from './core/core.component';
-// import { LocationsModule } from './locations/locations.module';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBw2QzOUPIlWY82y3sS83LyMI1tocAVejo",
@@ -63,7 +62,6 @@ const firebaseConfig = {
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
     AuthStatusDialog,
-    QuestionsComponent,
     CoreComponent
     
   ],

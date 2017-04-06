@@ -1,0 +1,70 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <!--/.col-->
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> All Authorized Locations
+        </div>
+        <div class="card-block">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                  <th style="width: 40px;" class="text-center">
+                    <input type="checkbox" />
+                  </th>
+                  <th style="width: 80px;" class="text-center"><i class="gi gi-user"></i></th>
+                  <th>Location Name</th>
+                  <th>Category</th>
+                  <th>Author</th>
+                  <th>Added On</th>
+                  <th style="width: 150px;" class="text-center"></th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let place of placesList">
+              
+                <td class="text-center">
+                  <input id="checkbox1-1" type="checkbox" name="checkbox1-1" />
+                </td>
+                <td class="text-center"><img src="img/placeholders/avatars/avatar16.png" alt="avatar" class="img-circle" /></td>
+                <td>
+                  <p>
+                    <a ui-sref="location({locationId: place._id})">{{place.name}}</a>
+                  </p>
+                  <p *ngIf="place.formatted_address" class="animation-target">
+                    <span city-state="place">{{place.formatted_address}}</span>
+                  </p>
+                </td>
+                <td>{{place.category}}</td>
+                <!--<td>{{place.author | author_field}}</td>-->
+                <td>{{place.author }}</td>
+                <td><a href="#" class="label label-warning">{{place.dateAdded  | amUtc | amDateFormat: 'YYYY-MM-DD'}}</a></td>
+                <td class="text-center"></td>
+              </tr>
+            </tbody>
+          </table>
+          <nav>
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+</div>

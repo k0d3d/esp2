@@ -1,9 +1,9 @@
 {
-  "name": "CoreUI",
+  "name": "tagchief-esp",
   "version": "1.0.0-alpha.4",
-  "description": "Open Source Bootstrap Admin Template",
+  "description": "ESP for tagChief App",
   "author": "",
-  "url": "http://coreui.io",
+  "url": "http://tagchief.com.ng",
   "copyright": "Copyright 2017 creativeLabs Łukasz Holeczek",
   "license": "MIT",
   "angular-cli": {},
@@ -13,10 +13,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"
+    "start-server": "ng serve --port 8080 --host 0.0.0.0"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "1.0.0-rc.1",
     "@angular/common": "2.4.9",
     "@angular/compiler": "2.4.9",
     "@angular/core": "2.4.9",
@@ -27,7 +28,7 @@
     "@angular/platform-browser-dynamic": "2.4.9",
     "@angular/router": "3.4.9",
     "@angular/upgrade": "2.4.9",
-    "@angular/cli": "1.0.0-rc.1",
+    "@ionic/cloud-angular": "^0.11.0",
     "angular2-moment": "^1.3.3",
     "angularfire2": "^2.0.0-beta.8",
     "chart.js": "2.5.0",
