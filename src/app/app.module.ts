@@ -26,7 +26,7 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 
 // 
-import { AngularFireModule } from 'angularfire2';
+// import { AngularFireModule } from 'angularfire2';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 import { AuthService } from './auth/auth.service'
@@ -35,13 +35,13 @@ import { EmitterService } from './provider/services/emitter.service';
 import { CoreComponent } from './core/core.component';
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBw2QzOUPIlWY82y3sS83LyMI1tocAVejo",
-  authDomain: "tagchief-matrix-843.firebaseapp.com",
-  databaseURL: "https://tagchief-matrix-843.firebaseio.com",
-  storageBucket: "tagchief-matrix-843.appspot.com",
-  messagingSenderId: "384367763163"
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBw2QzOUPIlWY82y3sS83LyMI1tocAVejo",
+//   authDomain: "tagchief-matrix-843.firebaseapp.com",
+//   databaseURL: "https://tagchief-matrix-843.firebaseio.com",
+//   storageBucket: "tagchief-matrix-843.appspot.com",
+//   messagingSenderId: "384367763163"
+// };
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -56,7 +56,7 @@ const cloudSettings: CloudSettings = {
     DropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFireModule.initializeApp(firebaseConfig),
     CloudModule.forRoot(cloudSettings),
     MaterialModule,
     SharedModule
