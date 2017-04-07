@@ -13,7 +13,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start-server": "ng serve --port 8080 --host 0.0.0.0"
+    "start-server": "ng serve --port 8080 --host 0.0.0.0",
+    "post-install": "ng build --aot -"
   },
   "engines": {
     "node": "7.0.x",
