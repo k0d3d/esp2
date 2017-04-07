@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-apache2 dist/
+web: ng serve -prod --host 0.0.0.0 --port 8080
