@@ -14,7 +14,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start-server": "ng serve --port 8080 --host 0.0.0.0",
-    "post-install": "ng build --aot -"
+    "postinstall": "ng build --aot -prod"
   },
   "engines": {
     "node": "7.0.x",
