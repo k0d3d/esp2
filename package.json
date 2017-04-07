@@ -15,6 +15,10 @@
     "e2e": "ng e2e",
     "start-server": "ng serve --port 8080 --host 0.0.0.0"
   },
+  "engines": {
+    "node": "7.0.x",
+    "npm": "3.10.x"
+  },
   "private": true,
   "dependencies": {
     "@angular/cli": "1.0.0-rc.1",
