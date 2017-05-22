@@ -5,18 +5,20 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
 
 import { ShortIdPipe }         from './short-id.pipe';
-import { MomentModule } from 'angular2-moment'
+import { MomentModule } from 'angular2-moment';
+import { StatscardComponent } from './statscard/statscard.component'
 
 @NgModule({
   imports:      [ CommonModule ],
-  declarations: [ ShortIdPipe ],
+  declarations: [ ShortIdPipe, StatscardComponent ],
   exports:      [ 
       ShortIdPipe, 
       CommonModule, 
       FormsModule, 
       MomentModule,
       ChartsModule,
-      DropdownModule
+      DropdownModule,
+      StatscardComponent
     ]
 })
 export class SharedModule { }

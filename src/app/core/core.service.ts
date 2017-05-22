@@ -39,4 +39,9 @@ export class CoreService {
     })  
     .toPromise()    
   }
+  
+  getStats () {
+    return this.makeRequest('/api/v2/stats')
+  }
+  
 }

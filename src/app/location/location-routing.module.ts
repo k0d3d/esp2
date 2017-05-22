@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LocationsComponent } from './location.component';
+import { LocationComponent } from './location.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LocationsComponent,
+    component: LocationComponent,
     data: {
       title: 'Authorized locations'
     }

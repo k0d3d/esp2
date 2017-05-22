@@ -9,11 +9,12 @@ import { ActivityService } from '../activity/activity.service'
 import { LocationComponent } from '../location/location.component'
 import { LocationService } from '../location/location.service'
 
-import { QuestionComponent } from '../question/question.component'
+import { QuestionComponent } from '../question/question.component' 
 import { QuestionService } from '../question/question.service'
 
 import { TargeterComponent } from '../targeter/targeter.component'
 
+import { CoreService } from './core.service'
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { TargeterComponent } from '../targeter/targeter.component'
   providers: [ 
     ActivityService, 
     LocationService,
-    QuestionService
+    QuestionService,
+    CoreService
   ]
 })
 export class CoreModule { }

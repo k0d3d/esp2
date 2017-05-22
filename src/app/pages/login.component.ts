@@ -24,7 +24,7 @@ export class LoginComponent {
   login(form) {
     this.authService.signInWithEmail(form)
     .then(h => {
-      this.router.navigate(['/dashboard'])
+      this.router.navigate(['/apps/activity'])
     }, err => {
       // this.openDialog(err)
       alert(err.message)

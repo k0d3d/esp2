@@ -17,7 +17,6 @@ import { BreadcrumbsComponent } from './shared/breadcrumb.component';
 
 import { AuthStatusDialog } from './shared/dialog'
 import { SharedModule } from './shared/shared.module'
-
 // Routing Module
 import { AppRoutingModule } from './app.routing';
 
@@ -70,11 +69,11 @@ const cloudSettings: CloudSettings = {
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
     AuthStatusDialog,
-    CoreComponent
-    
+    CoreComponent,
   ],
   entryComponents: [AuthStatusDialog],
   providers: [
+    // guardEsp,
     AuthService,
     EmitterService,
     {

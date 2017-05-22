@@ -1,14 +1,39 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router } from '@angular/router';
+
+import { Auth } from '@ionic/cloud-angular';
 
 // Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 
-export const routes: Routes = [
+
+export const guardEsp = [
+    {
+      provide: "canActivatePage", 
+      useFactory: (
+        ionicAuth: Auth) => {
+        // router.navigate(["/pages/login"]);
+        // return true
+        return () => ionicAuth.isAuthenticated();
+      },
+      deps: [Auth]
+    },
+    {
+      provide: "canDeActivatePage", 
+      useFactory: (
+        ionicAuth: Auth) => {
+        return () => !ionicAuth.isAuthenticated();
+      },
+      deps: [Auth]
+    }    
+];
+
+
+export const routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'apps/activity',
     pathMatch: 'full',
   },
   {
@@ -20,27 +45,13 @@ export const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        loadChildren: './dashboard/dashboard.module#DashboardModule'
-      },
-      {
-        path: 'components',
-        loadChildren: './components/components.module#ComponentsModule'
-      },
-      {
-        path: 'icons',
-        loadChildren: './icons/icons.module#IconsModule'
-      },
-      {
-        path: 'widgets',
-        loadChildren: './widgets/widgets.module#WidgetsModule'
-      },
-      {
-        path: 'charts',
-        loadChildren: './chartjs/chartjs.module#ChartJSModule'
+        loadChildren: './dashboard/dashboard.module#DashboardModule',
+        canActivate: ['canActivatePage']
       },
       {
         path: 'apps',
         loadChildren: './core/core.module#CoreModule',
+        canActivate: ['canActivatePage']
       }      
     ]
   },
